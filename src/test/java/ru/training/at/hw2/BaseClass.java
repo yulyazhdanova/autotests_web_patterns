@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import ru.training.at.hw2.data.TestData;
@@ -17,7 +18,14 @@ public class BaseClass {
     @BeforeMethod
     public void beforeCondition(){
         WebDriverManager.chromedriver();
-        webDriver = new ChromeDriver();
+        //webDriver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        webDriver = new ChromeDriver(options);
+
         webDriver.manage().window().maximize();
         // 1. Open test site by URL
         webDriver.navigate().to(TestData.URL);

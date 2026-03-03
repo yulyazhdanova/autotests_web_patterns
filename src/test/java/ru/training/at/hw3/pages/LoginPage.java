@@ -37,7 +37,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(css = "label:nth-child(3) input[type=checkbox]")
     private WebElement wind;
 
-    @FindBy(xpath = "//label[@class = 'label-radio']/input[@wfd-id = 'id10']")
+    @FindBy(css = "div:nth-child(3) > label:nth-child(4) > input[type=radio]")
     private WebElement radio;
 
     @FindBy(xpath = "//select[@class = 'uui-form-element']/option[text() = 'Yellow']")

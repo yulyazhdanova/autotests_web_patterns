@@ -29,7 +29,7 @@ public class TestEx2 extends BaseClass {
         wind.click();
         Assert.assertTrue(wind.isSelected());
         //7	Select radio Selen
-        WebElement radio = webDriver.findElement(By.xpath("//label[@class = 'label-radio']/input[@wfd-id = 'id10']"));
+        WebElement radio = webDriver.findElement(By.cssSelector("div:nth-child(3) > label:nth-child(4) > input[type=radio]"));
         radio.click();
         Assert.assertTrue(radio.isSelected());
         //8	Select in dropdown Yellow
