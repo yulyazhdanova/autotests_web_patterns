@@ -23,6 +23,7 @@ pipeline {
     post {
         always {
             allure([
+            //Генерация Allure отчета
                 includeProperties: false,
                 jdk: '',
                 results: [[path: 'target/allure-results']]
