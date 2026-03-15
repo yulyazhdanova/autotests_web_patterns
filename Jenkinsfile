@@ -1,7 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'selenium/standalone-chrome:latest'
+            image 'maven:3.9.11-eclipse-temurin-17'
+            args '-u root'
         }
     }
 
@@ -16,6 +17,16 @@ pipeline {
             steps {
                 sh 'mvn clean test'
             }
+        }
+    }
+
+    post {
+        always {
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'target/allure-results']]
+            ])
         }
     }
 }
