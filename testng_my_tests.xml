@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UI Suite" parallel="methods" thread-count="2">
+    <test name="Homework">
+        <classes>
+            <class name="ru.training.at.hw3_for_selenium_grid.test.TestEx1"/>
+            <class name="ru.training.at.hw3_for_selenium_grid.test.TestEx2"/>
+        </classes>
+    </test>
+</suite>

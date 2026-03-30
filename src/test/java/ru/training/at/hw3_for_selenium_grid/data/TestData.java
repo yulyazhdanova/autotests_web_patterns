@@ -1,6 +1,5 @@
-package ru.training.at.hw3.data;
+package ru.training.at.hw3_for_selenium_grid.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TestData {
