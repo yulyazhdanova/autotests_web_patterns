@@ -1,9 +1,9 @@
-package ru.training.at.hw1.test;
+package ru.training.at.homework1_with_mock;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestSub extends BeforeClass{
+public class TestSub extends BeforeClass {
 
     @Test(dataProvider = "LongData",dataProviderClass = DataProviderTest.class)
     public void subTest(long a,long b){

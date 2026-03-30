@@ -1,7 +1,6 @@
-package ru.training.at.hw1.test;
+package ru.training.at.homework1_with_mock;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TestSum extends BeforeClass {

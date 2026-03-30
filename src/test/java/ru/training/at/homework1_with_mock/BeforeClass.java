@@ -1,4 +1,4 @@
-package ru.training.at.hw1.test;
+package ru.training.at.homework1_with_mock;
 
 import com.epam.tat.module4.Calculator;
 
