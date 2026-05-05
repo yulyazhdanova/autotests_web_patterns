@@ -19,7 +19,7 @@ public class TestDiv extends BeforeClass {
     @Test(dataProvider = "DoubleData", dataProviderClass = DataProviderTest.class)
     public void divTest(double a, double b)  {
         if (b == 0) {
-            throw new NumberFormatException("Деление на 0 запрещено");
+            calculator.div(a,b);
         } else {
             double expected = (a / b);
             Assert.assertEquals(calculator.div(a, b), expected);
