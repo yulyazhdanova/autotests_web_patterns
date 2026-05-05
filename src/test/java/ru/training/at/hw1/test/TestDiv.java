@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class TestDiv extends BeforeClass {
 
-    //@Test(dataProvider = "LongData", dataProviderClass = DataProviderTest.class)
+    @Test(dataProvider = "LongData", dataProviderClass = DataProviderTest.class)
     public void divTest(long a, long b) {
         if (b == 0) {
             throw new NumberFormatException("Деление на 0 запрещено");
@@ -16,17 +16,17 @@ public class TestDiv extends BeforeClass {
         }
     }
 
-    //@Test(dataProvider = "DoubleData", dataProviderClass = DataProviderTest.class)
+    @Test(dataProvider = "DoubleData", dataProviderClass = DataProviderTest.class)
     public void divTest(double a, double b)  {
         if (b == 0) {
-            calculator.div(a,b);
+            throw new NumberFormatException("Деление на 0 запрещено");
         } else {
             double expected = (a / b);
             Assert.assertEquals(calculator.div(a, b), expected);
         }
     }
 
-    //@Test(dataProvider = "dataForDivideByZero", dataProviderClass = DataProviderTest.class, expectedExceptions = NumberFormatException.class)
+    @Test(dataProvider = "dataForDivideByZero", dataProviderClass = DataProviderTest.class, expectedExceptions = NumberFormatException.class)
     public void divideByZero(int a, int b) {
         calculator.div(a,b);
         if (b == 0) {
