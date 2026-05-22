@@ -4,6 +4,7 @@
         <classes>
             <class name="ru.training.at.hw3_for_selenium_grid.test.TestEx1"/>
             <class name="ru.training.at.hw3_for_selenium_grid.test.TestEx2"/>
+            <class name="ru.training.at.hw3_for_selenium_grid.test.TestLogin"/>
         </classes>
     </test>
 </suite>

@@ -21,5 +21,6 @@ public class TestData {
     public final static String LOGIN = "Roman";
     public final static String PASSWORD = "Jdi1234";
     public final static String DROP = "Yellow";
+    public final static List<String> LOGITEMS = List.of("value changed to Yellow","value changed to Selen","condition changed to true","condition changed to true");
 
 }

@@ -2,7 +2,7 @@ package ru.training.at.hw3_for_selenium_grid.projectUtils;
 
 import org.openqa.selenium.WebDriver;
 
-public class DriverManager extends BeforeClass {
+public class DriverManager {
 
     private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
 

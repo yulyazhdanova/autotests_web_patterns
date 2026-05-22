@@ -49,7 +49,7 @@ public class TestEx2 extends BaseClass {
         DifferentElementsPageSteps.checkLogItemsDisplayed(differentElementsPage);
     }
 
-    public void assertLogList(){DifferentElementsPageSteps.checkLogItems(differentElementsPage,TestData.LOGITEMS);};
+    public void assertLogList(){DifferentElementsPageSteps.checkLogItems(differentElementsPage,TestData.LOGITEMS);}
 
     public void close(){
         DifferentElementsPageSteps.closeBrowser(webDriver);

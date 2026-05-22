@@ -43,6 +43,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//select[@class = 'uui-form-element']/option[text() = 'Yellow']")
     private WebElement dropYellow;
 
+    @FindBy(css = ".logs > li")
+    private List<WebElement> logItems;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -93,5 +96,9 @@ public class LoginPage extends AbstractPage {
 
     public WebElement getDropYellow() {
         return dropYellow;
+    }
+
+    public List<WebElement> getLogItems() {
+        return logItems;
     }
 }

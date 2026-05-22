@@ -1,9 +1,15 @@
 package ru.training.at.hw3.test;
 
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.training.at.hw3.BaseClass;
 import ru.training.at.hw3.data.TestData;
+import ru.training.at.hw3.pages.LoginPage;
+import ru.training.at.hw4.pages.DifferentElementsPage;
+import ru.training.at.hw4.test.steps.DifferentElementsPageSteps;
+
+import java.util.List;
 
 public class TestEx2 extends BaseClass {
 
@@ -18,6 +24,9 @@ public class TestEx2 extends BaseClass {
         asserRadio();
         //8	Select in dropdown Yellow
         assertDropList();
+        //9 Assert log row
+        assertLogIsDisplayed();
+        assertLogList();
         //10	Close Browser
         //close();
     }
@@ -45,6 +54,22 @@ public class TestEx2 extends BaseClass {
     public void assertDropList(){
         loginPage.getDropYellow().click();
         Assert.assertEquals(loginPage.getDropYellow().getText(),TestData.DROP);
+    }
+    public void assertLogIsDisplayed(){
+        loginPage.getLogItems();
+        for (int i = 0; i < loginPage.getLogItems().size(); i++){
+            Assert.assertTrue(loginPage.getLogItems().get(i).isDisplayed());
+        }
+    }
+    public void assertLogList(){
+        for (int i = 0; i < loginPage.getLogItems().size(); i++) {
+            Assert.assertEquals(loginPage
+                    .getLogItems()
+                    .get(i)
+                    .getText()
+                    .substring(loginPage.getLogItems().get(i).getText().lastIndexOf(':'))
+                    .replaceAll("[^a-zA-Z ]", "").trim(), TestData.LOGITEMS.get(i));
+        }
     }
 
     public void close(){

@@ -1,9 +1,14 @@
 package ru.training.at.hw3_for_selenium_grid.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import ru.training.at.hw3_for_selenium_grid.data.TestData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage extends AbstractPage {
 
@@ -26,21 +31,23 @@ public class HomePage extends AbstractPage {
         super(webDriver);
     }
 
-    public HomePage openHomePage(){
+    public HomePage openHomePage() {
         webDriver.get(TestData.URL);
         return this;
     }
 
-    public LoginPage login(){
-        this.userIcon.click();
-        this.password.sendKeys(TestData.PASSWORD);
-        this.userName.sendKeys(TestData.LOGIN);
-        this.loginButton.click();
+    public LoginPage login() {
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(userIcon)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(userName)).sendKeys(TestData.LOGIN);
+        wait.until(ExpectedConditions.elementToBeClickable(password)).sendKeys(TestData.PASSWORD);
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+
         return new LoginPage(webDriver);
     }
 
     public WebElement getUserNameLogin() {
         return userNameLogin;
     }
-
 }
