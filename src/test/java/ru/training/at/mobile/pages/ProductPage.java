@@ -2,28 +2,33 @@ package ru.training.at.mobile.pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ProductPage extends AbstractPage {
 
+    private final WebDriverWait wait;
+
     public ProductPage(AndroidDriver androidDriver) {
         super(androidDriver);
+        this.wait = new WebDriverWait(androidDriver, Duration.ofSeconds(5));
     }
 
-    WebElement productTitle = androidDriver.findElement(
-            AppiumBy.id(
-                    "com.saucelabs.mydemoapp.android:id/productTV")
-    );
-//    WebElement addToCartBotton = androidDriver.findElement(
-//            AppiumBy.androidUIAutomator(
-//                    "new UiSelector().resourceId(\"com.saucelabs.mydemoapp.android:id/cartBt\")")
-//    );
+    private final By productTitle =
+            AppiumBy.id("com.saucelabs.mydemoapp.android:id/productTV");
+
+    private final By addToCartButton =
+            AppiumBy.id("com.saucelabs.mydemoapp.android:id/cartBt");
 
     public WebElement getProductTitle() {
-        return productTitle;
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(productTitle));
     }
 
-//    public WebElement getAddToCartBotton() {
-//        return addToCartBotton;
-//    }
+    public void clickAddToCartButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+    }
 }
